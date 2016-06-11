@@ -1,6 +1,8 @@
 import React from 'react';
 import ajaxHelpers from '../utils/ajaxHelpers';
 import IssueList from './IssueList';
+import IssueFormContainer from '../containers/IssueFormContainer';
+
 
 const RepoCard = React.createClass({
   getInitialState: function(){
@@ -17,7 +19,7 @@ const RepoCard = React.createClass({
     var that = this;
     ajaxHelpers.getIssues(this.props.repo.name)
     .then(function(response){
-      console.log("get issues response", response);
+      // console.log("get issues response", response);
       that.setState({
         issueList: response.data
       });
@@ -35,6 +37,7 @@ const RepoCard = React.createClass({
           issues={this.state.issueList}
           repoName={this.props.repo.name}
           onCloseIssues={this.handleCloseIssues}
+          onEditModal={this.props.onEditModal}
         />
       );
     } else {
@@ -52,7 +55,7 @@ const RepoCard = React.createClass({
             <p><a href={repo.html_url} target="_blank">View on GitHub</a></p>
           </div>
           <div className="repo-buttons">
-            <button type="button" value={repo.id} onClick={this.props.onNewIssue}>New Issue</button>
+            <button type="button" value={repo.id} onClick={this.props.onNewModal}>New Issue</button>
             <button type="button" onClick={this.handleShowIssues}>View Issues</button>
           </div>
         </div>

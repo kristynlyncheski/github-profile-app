@@ -9,7 +9,7 @@ const IssueCard = React.createClass({
   },
   renderCloseBtn: function(){
     var state = this.state.issueState;
-    console.log(state);
+    // console.log(state);
 
     if (state === "closed") {
       return <button type="button" value="open" onClick={this.handleStateChange}>Open Issue</button>
@@ -27,7 +27,7 @@ const IssueCard = React.createClass({
 
     ajaxHelpers.changeIssueState(stateChange,repoName,issueNumber)
     .then(function(response){
-      console.log("state change issue response", response);
+      // console.log("state change issue response", response);
     });
 
     if (this.state.issueState === "closed"){
@@ -51,7 +51,7 @@ const IssueCard = React.createClass({
           <p>{issue.body}</p>
         </div>
         <div className="issue-buttons">
-          <button type="button">Edit Issue</button>
+          <button type="button" onClick={this.props.onEditModal}>Edit Issue</button>
           {this.renderCloseBtn()}
         </div>
       </div>

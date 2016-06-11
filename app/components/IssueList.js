@@ -12,6 +12,7 @@ const IssueList = React.createClass({
             <IssueCard
               issue={issue}
               repoName={this.props.repoName}
+              onEditModal={this.props.onEditModal}
             />
           </div>
         )
@@ -31,7 +32,7 @@ const IssueList = React.createClass({
       <div className="issue-container">
         {this.renderIssues()}
       </div>
-    )
+    );
   }
 });
 

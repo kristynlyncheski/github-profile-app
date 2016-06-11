@@ -13,7 +13,7 @@ const Profile = React.createClass({
     var that = this;
     ajaxHelpers.getUser()
     .then(function(response){
-      console.log("profile response", response);
+      // console.log("profile response", response);
       that.setState({
         userInfo: response.data,
       });
