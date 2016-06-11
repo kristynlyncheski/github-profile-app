@@ -23,12 +23,18 @@ const RepoCard = React.createClass({
       });
     });
   },
+  handleCloseIssues: function(){
+    this.setState({
+      showIssues: false
+    });
+  },
   viewIssues: function(){
     if (this.state.showIssues){
       return (
         <IssueList
           issues={this.state.issueList}
           repoName={this.props.repo.name}
+          onCloseIssues={this.handleCloseIssues}
         />
       );
     } else {

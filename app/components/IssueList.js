@@ -4,11 +4,11 @@ import IssueCard from './IssueCard';
 const IssueList = React.createClass({
   renderIssues: function(){
     var issues = this.props.issues;
-
     if (issues.length > 0){
       var issueList = issues.map((issue,index) => {
         return (
-          <div key={index}>
+          <div key={index} className="issue-card-container">
+            <div className="close-button" onClick={this.props.onCloseIssues}>x</div>
             <IssueCard
               issue={issue}
               repoName={this.props.repoName}
@@ -20,7 +20,8 @@ const IssueList = React.createClass({
     } else if (issues.length === 0){
       return (
         <div className="issue-card">
-          There are currently no issues for this repo.
+          <div className="close-button" onClick={this.props.onCloseIssues}>x</div>
+          <p>There are currently no issues for this repo.</p>
         </div>
       )
     };

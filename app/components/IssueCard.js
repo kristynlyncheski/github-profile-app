@@ -2,13 +2,18 @@ import React from 'react';
 import ajaxHelpers from '../utils/ajaxHelpers';
 
 const IssueCard = React.createClass({
+  getInitialState: function(){
+    return{
+      issueState: this.props.issue.state,
+    };
+  },
   renderCloseBtn: function(){
-    var issue = this.props.issue;
+    var state = this.state.issueState;
+    console.log(state);
 
-    // console.log(issue);
-    if (issue.state === "closed") {
+    if (state === "closed") {
       return <button type="button" value="open" onClick={this.handleStateChange}>Open Issue</button>
-    } else {
+    } else if (state === "open"){
       return <button value="close" type="button" onClick={this.handleStateChange}>Close Issue</button>
     };
   },
@@ -24,6 +29,16 @@ const IssueCard = React.createClass({
     .then(function(response){
       console.log("state change issue response", response);
     });
+
+    if (this.state.issueState === "closed"){
+      this.setState({
+        issueState: "open"
+      });
+    } else if (this.state.issueState === "open"){
+      this.setState({
+        issueState: "closed"
+      });
+    };
   },
   render: function(){
     var issue = this.props.issue;
@@ -31,7 +46,7 @@ const IssueCard = React.createClass({
       <div className="issue-card">
         <div className="issue-details">
           <h3>{issue.title}</h3>
-          <p>({issue.state})</p>
+          <p>({this.state.issueState})</p>
           <p>Created on {issue.created_at}</p>
           <p>{issue.body}</p>
         </div>
