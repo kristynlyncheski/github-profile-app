@@ -8,7 +8,7 @@ const Repos = React.createClass({
   getInitialState: function(){
     return {
       repoList: [],
-      showModal: false
+      showModal: false,
     };
   },
   componentDidMount: function(){
@@ -50,6 +50,16 @@ const Repos = React.createClass({
       return
     };
   },
+  setRepoName: function(name){
+    this.setState({
+      repoName: name
+    });
+  },
+  setIssueNumber: function(number){
+    this.setState({
+      issueNumber: number
+    });
+  },
   render: function(){
     return(
       <div className="right-container repos-container">
@@ -58,11 +68,13 @@ const Repos = React.createClass({
           <IndexLink to="/" activeClassName="active-nav">
             <div className="close-button">x</div>
           </IndexLink>
-          <h2>kristynlyncheski's repos</h2>
+          <h2>{this.props.userInfo.login}'s repos</h2>
           <RepoList
             repos={this.state.repoList}
             onNewModal={this.showNewModal}
             onEditModal={this.showEditModal}
+            onSetRepoName={this.setRepoName}
+            onSetIssueNumber={this.setIssueNumber}
           />
         </div>
       </div>

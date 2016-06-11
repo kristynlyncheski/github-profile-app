@@ -6,14 +6,14 @@ const IssueFormContainer = React.createClass({
     if (this.props.formType === "new"){
       return (
         <IssueForm
-          type="new"
+          formType={this.props.formType}
           onHideModal={this.props.onHideModal}
         />
       );
     } else if (this.props.formType === "edit"){
       return (
         <IssueForm
-          type="edit"
+          formType={this.props.formType}
           onHideModal={this.props.onHideModal}
         />
       );

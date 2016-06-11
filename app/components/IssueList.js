@@ -13,6 +13,8 @@ const IssueList = React.createClass({
               issue={issue}
               repoName={this.props.repoName}
               onEditModal={this.props.onEditModal}
+              onSetRepoName={this.props.onSetRepoName}
+              onSetIssueNumber={this.props.onSetIssueNumber}
             />
           </div>
         )

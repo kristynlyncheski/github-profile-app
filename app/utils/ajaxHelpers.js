@@ -18,14 +18,11 @@ const ajaxHelpers = {
   getIssues: function(repoName){
     return axios.get(baseURL + 'repos/' + username + '/' + repoName + '/issues?state=all', credentials)
   },
-  // createIssue: function(issue){
-  //   return axios.post(baseURL + 'repos/' + username + '/group-project-three-backend/issues', issue, credentials)
-  // },
-  // editIssue: function(issue){
-  //   return axios.patch(baseURL + 'repos/' + username + '/group-project-three-backend/issues', issue, credentials)
-  // },
-  changeIssueState: function(newState, repoName, issueNumber){
-    return axios.patch(baseURL + 'repos/' + username + '/' + repoName + '/issues/' + issueNumber, newState, credentials)
+  createIssue: function(issueInfo, repoName){
+    return axios.post(baseURL + 'repos/' + username + '/' + repoName + '/issues', issueInfo);
+  },
+  changeIssue: function(updatedInfo, repoName, issueNumber){
+    return axios.patch(baseURL + 'repos/' + username + '/' + repoName + '/issues/' + issueNumber, updatedInfo, credentials)
   }
 }
 

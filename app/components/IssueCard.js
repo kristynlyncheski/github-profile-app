@@ -25,7 +25,7 @@ const IssueCard = React.createClass({
       state: e.target.value,
     };
 
-    ajaxHelpers.changeIssueState(stateChange,repoName,issueNumber)
+    ajaxHelpers.changeIssue(stateChange,repoName,issueNumber)
     .then(function(response){
       // console.log("state change issue response", response);
     });

@@ -38,6 +38,8 @@ const RepoCard = React.createClass({
           repoName={this.props.repo.name}
           onCloseIssues={this.handleCloseIssues}
           onEditModal={this.props.onEditModal}
+          onSetRepoName={this.props.onSetRepoName}
+          onSetIssueNumber={this.props.onSetIssueNumber}
         />
       );
     } else {
