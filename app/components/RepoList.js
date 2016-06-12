@@ -18,7 +18,7 @@ const RepoList = React.createClass({
             onNewModal={this.props.onNewModal}
             onEditModal={this.props.onEditModal}
             onSetRepoName={this.props.onSetRepoName}
-            onSetIssueNumber={this.props.onSetIssueNumber}
+            onSetIssue={this.props.onSetIssue}
           />
         </div>
       )

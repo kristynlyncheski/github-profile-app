@@ -44,6 +44,8 @@ const Repos = React.createClass({
         <IssueFormContainer
           formType={this.state.formType}
           onHideModal={this.hideModal}
+          repoName={this.state.repoName}
+          issue={this.state.issue}
         />
       );
     } else {
@@ -55,10 +57,11 @@ const Repos = React.createClass({
       repoName: name
     });
   },
-  setIssueNumber: function(number){
+  setIssue: function(issue){
     this.setState({
-      issueNumber: number
+      issue: issue
     });
+    console.log(issue)
   },
   render: function(){
     return(
@@ -74,7 +77,7 @@ const Repos = React.createClass({
             onNewModal={this.showNewModal}
             onEditModal={this.showEditModal}
             onSetRepoName={this.setRepoName}
-            onSetIssueNumber={this.setIssueNumber}
+            onSetIssue={this.setIssue}
           />
         </div>
       </div>

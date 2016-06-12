@@ -14,7 +14,7 @@ const IssueList = React.createClass({
               repoName={this.props.repoName}
               onEditModal={this.props.onEditModal}
               onSetRepoName={this.props.onSetRepoName}
-              onSetIssueNumber={this.props.onSetIssueNumber}
+              onSetIssue={this.props.onSetIssue}
             />
           </div>
         )

@@ -19,7 +19,7 @@ const ajaxHelpers = {
     return axios.get(baseURL + 'repos/' + username + '/' + repoName + '/issues?state=all', credentials)
   },
   createIssue: function(issueInfo, repoName){
-    return axios.post(baseURL + 'repos/' + username + '/' + repoName + '/issues', issueInfo);
+    return axios.post(baseURL + 'repos/' + username + '/' + repoName + '/issues', issueInfo, credentials);
   },
   changeIssue: function(updatedInfo, repoName, issueNumber){
     return axios.patch(baseURL + 'repos/' + username + '/' + repoName + '/issues/' + issueNumber, updatedInfo, credentials)

@@ -40,6 +40,11 @@ const IssueCard = React.createClass({
       });
     };
   },
+  handleEditModal: function(){
+    this.props.onSetRepoName(this.props.repoName);
+    this.props.onSetIssue(this.props.issue);
+    this.props.onEditModal();
+  },
   render: function(){
     var issue = this.props.issue;
     return (
@@ -51,7 +56,7 @@ const IssueCard = React.createClass({
           <p>{issue.body}</p>
         </div>
         <div className="issue-buttons">
-          <button type="button" onClick={this.props.onEditModal}>Edit Issue</button>
+          <button type="button" onClick={this.handleEditModal}>Edit Issue</button>
           {this.renderCloseBtn()}
         </div>
       </div>

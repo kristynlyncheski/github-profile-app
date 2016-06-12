@@ -39,12 +39,16 @@ const RepoCard = React.createClass({
           onCloseIssues={this.handleCloseIssues}
           onEditModal={this.props.onEditModal}
           onSetRepoName={this.props.onSetRepoName}
-          onSetIssueNumber={this.props.onSetIssueNumber}
+          onSetIssue={this.props.onSetIssue}
         />
       );
     } else {
       return;
     };
+  },
+  handleNewModal: function(){
+    this.props.onNewModal();
+    this.props.onSetRepoName(this.props.repo.name);
   },
   render: function(){
     var repo = this.props.repo;
@@ -57,7 +61,7 @@ const RepoCard = React.createClass({
             <p><a href={repo.html_url} target="_blank">View on GitHub</a></p>
           </div>
           <div className="repo-buttons">
-            <button type="button" value={repo.id} onClick={this.props.onNewModal}>New Issue</button>
+            <button type="button" value={repo.id} onClick={this.handleNewModal}>New Issue</button>
             <button type="button" onClick={this.handleShowIssues}>View Issues</button>
           </div>
         </div>

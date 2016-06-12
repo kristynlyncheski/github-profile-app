@@ -1,6 +1,13 @@
 import React from 'react';
+import ajaxHelpers from '../utils/ajaxHelpers';
 
 const IssueForm = React.createClass({
+  componentDidMount: function(){
+    if (this.props.issue){
+      this.refs.title.value = this.props.issue.title;
+      this.refs.body.value = this.props.issue.body;
+    };
+  },
   renderBtnText: function(){
     if (this.props.formType === "new"){
       return "New Issue";
@@ -16,6 +23,21 @@ const IssueForm = React.createClass({
         body: this.refs.body.value,
       };
       this.props.onHideModal();
+    };
+
+    var repoName = this.props.repoName;
+    var issueNumber = this.props.issueNumber;
+
+    if (this.props.formType === "new"){
+      ajaxHelpers.createIssue(newIssue,repoName)
+      .then(function(response){
+        // console.log("create issue response", response);
+      });
+    } else if (this.props.formType === "edit"){
+      ajaxHelpers.changeIssue(newIssue,repoName,issueNumber)
+      .then(function(response){
+        console.log("edit issue response", response);
+      });
     };
   },
   render: function(){
