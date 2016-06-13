@@ -11,9 +11,6 @@ const RepoList = React.createClass({
       return (
         <div key={index}>
           <RepoCard
-            onNewIssue={this.handleNewIssue}
-            onShowIssues={this.handleShowIssues}
-            viewIssues={this.viewIssues}
             repo={repo}
             onNewModal={this.props.onNewModal}
             onEditModal={this.props.onEditModal}

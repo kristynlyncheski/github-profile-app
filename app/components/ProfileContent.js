@@ -31,7 +31,7 @@ const ProfileContent = React.createClass({
     var bio = this.props.user.bio;
     if (bio){
       return (
-        <p>{bio}</p>
+        <p className="user-bio">{bio}</p>
       );
     } else {
       return
@@ -41,7 +41,7 @@ const ProfileContent = React.createClass({
     var location = this.props.user.location;
     if (location){
       return (
-        <p><i className="fa fa-map-marker" aria-hidden="true"></i> {location}</p>
+        <p><i className="fa fa-2x fa-map-marker" aria-hidden="true"></i> {location}</p>
       );
     } else {
       return
@@ -51,7 +51,7 @@ const ProfileContent = React.createClass({
     var company = this.props.user.company;
     if (company){
       return (
-        <p><i className="fa fa-building" aria-hidden="true"></i> {company}</p>
+        <p><i className="fa fa-2x fa-building" aria-hidden="true"></i> {company}</p>
       );
     } else {
       return
@@ -61,7 +61,7 @@ const ProfileContent = React.createClass({
     var email = this.props.user.email;
     if (email){
       return (
-        <p><i className="fa fa-envelope-o" aria-hidden="true"></i> {email}</p>
+        <p><i className="fa fa-2x fa-envelope-o" aria-hidden="true"></i> <a href={email} target="_blank">{email}</a></p>
       );
     } else {
       return
@@ -71,7 +71,27 @@ const ProfileContent = React.createClass({
     var blog = this.props.user.blog;
     if (blog){
       return (
-        <p><i className="fa fa-link" aria-hidden="true"></i> {blog}</p>
+        <p><i className="fa fa-2x fa-link" aria-hidden="true"></i> <a href={blog} target="_blank">{blog}</a></p>
+      );
+    } else {
+      return
+    }
+  },
+  renderJoin: function(){
+    var dateISO = this.props.user.created_at;
+    var date = new Date(dateISO);
+
+    var month = date.getMonth();
+    var months = ["January" , "February" , "March" , "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    month = months[month];
+    var day = date.getDate();
+    var year = date.getFullYear();
+
+    date = month + " " + day + ", " + year;
+
+    if (date){
+      return (
+        <p><i className="fa fa-2x fa-clock-o" aria-hidden="true"></i> <span>Joined on {date}</span></p>
       );
     } else {
       return
@@ -85,14 +105,14 @@ const ProfileContent = React.createClass({
         <div>
           {this.renderName()}
           <h4>{user.login}</h4>
-        </div>
-        <div className="profile-details">
-          {this.renderBio()}
-          {this.renderLocation()}
-          {this.renderCompany()}
-          {this.renderEmail()}
-          {this.renderBlog()}
-          <p><i className="fa fa-clock-o" aria-hidden="true"></i> {user.created_at}</p>
+          <div className="profile-details">
+            {this.renderBio()}
+            {this.renderLocation()}
+            {this.renderCompany()}
+            {this.renderEmail()}
+            {this.renderBlog()}
+            {this.renderJoin()}
+          </div>
         </div>
       </div>
     )

@@ -26,7 +26,12 @@ const IssueForm = React.createClass({
     };
 
     var repoName = this.props.repoName;
-    var issueNumber = this.props.issueNumber;
+
+    if (this.props.issue){
+      var issueNumber = this.props.issue.number;
+    }''
+
+    var that = this;
 
     if (this.props.formType === "new"){
       ajaxHelpers.createIssue(newIssue,repoName)
@@ -36,7 +41,7 @@ const IssueForm = React.createClass({
     } else if (this.props.formType === "edit"){
       ajaxHelpers.changeIssue(newIssue,repoName,issueNumber)
       .then(function(response){
-        console.log("edit issue response", response);
+        // console.log("edit issue response", response);
       });
     };
   },
@@ -49,7 +54,7 @@ const IssueForm = React.createClass({
           <br />
           <textarea ref="body" name="body" rows="8" cols="40" placeholder="Describe your issue..."></textarea>
           <br />
-          <button type="button" ref="submitIssue" onClick={this.handleSubmit}>Submit {this.renderBtnText()}</button>
+          <button type="button" className="modal-btn" ref="submitIssue" onClick={this.handleSubmit}>Submit {this.renderBtnText()}</button>
         </div>
       </div>
     )

@@ -9,7 +9,24 @@ body {
   width:80%;
   margin:0 auto;
   padding:0;
-  background: #a3f2e0;
+  background: #040404;
+}
+
+.italic {
+  font-style: italic;
+}
+
+a {
+  color: #040404;
+  cursor:pointer;
+}
+
+a:hover {
+  color: #F0D00D;
+}
+
+button {
+  cursor: pointer;
 }
 
 /* CONTAINER STYLES */
@@ -20,14 +37,29 @@ body {
 
 .inner-container {
   margin:10px 0;
+  padding-bottom:10px;
 }
 
 /* PROFILE STYLES */
 .profile-container {
-  background:#fff;
-  min-height:100vh;
+  /*background:#fdfdfd;*/
+  /*min-height:100vh;*/
   width:40%;
   text-align:center;
+}
+
+.profile-container .inner-container {
+  background:#fdfdfd;
+  margin:0;
+  padding:10px 0 25px 0;
+}
+
+h2.app-name {
+  display:flex;
+  flex-flow:row nowrap;
+  align-items: center;
+  justify-content: center;
+  margin-top:10px;
 }
 
 .profile-content {
@@ -36,19 +68,68 @@ body {
   text-align:center;
 }
 
-.profile-details {
-  text-align:left;
+.profile-content h3 {
+  font-size:24px;
+  margin:10px 0 5px 0;
 }
 
-.profile-image{
+.profile-content h4 {
+  font-weight:400;
+  font-size:18px;
+  letter-spacing:0.5px;
+  margin:0 0 10px;
+}
+
+.profile-details {
+  text-align:left;
+  width:80%;
+  margin:25px auto;
+  font-size:13px;
+}
+
+.profile-details .user-bio {
+  text-align:center;
+}
+
+.profile-details p {
+  margin:10px 0;
+  display:flex;
+  flex-flow:row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.profile-details .fa {
+  color: #F0D00D;
+  margin-right:10px;
+}
+
+
+.profile-image {
   width:80%;
   margin:0 auto;
 }
 
 .profile-content .display-image {
   border-radius:50%;
-  border:5px solid #49e5c2;
+  border:5px solid #119DA4;
   width: 100%;
+}
+
+button.view-repos-btn {
+  background:#F0D00D;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 10px;
+  color: #fdfdfd;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+button.view-repos-btn:hover {
+  background:#FFE85A;
 }
 
 /* RIGHT STYLES */
@@ -59,8 +140,8 @@ body {
 
 /* REPOS STYLES */
 .repos-container {
-  background:#f3d3bd;
-  color:#fff;
+  background:#119DA4;
+  color:#fdfdfd;
   position:relative;
 }
 
@@ -70,6 +151,14 @@ body {
   top:10px;
   font-size:20px;
   cursor: pointer;
+}
+
+.close-button:hover {
+  color: #F0D00D;
+}
+
+.repos-container h2 {
+  font-size:26px;
 }
 
 .repo-list {
@@ -82,9 +171,9 @@ body {
   display:flex;
   flex-flow:row nowrap;
   justify-content: space-between;
-  background:#fff;
-  color:#000;
-  margin-bottom:20px;
+  background:#fdfdfd;
+  color:#040404;
+  margin-top:20px;
   padding:10px 20px;
   box-shadow:rgba(0, 0, 0, 0.2) 0px 1px 6px, rgba(0, 0, 0, 0.2) 0px 1px 4px
 }
@@ -94,27 +183,82 @@ body {
   text-align:left;
 }
 
+.repo-details {
+  margin:10px 0;
+}
+
+.repo-details h3 {
+  margin:0 0 5px 0;
+  font-size:22px;
+}
+
+.repo-details p {
+  margin:5px 0;
+}
+
+.repo-details p.repo-updated {
+  color:#999;
+  font-size:14px;
+}
+
 .repo-buttons {
   display:flex;
   flex-flow:column nowrap;
   justify-content: center;
 }
 
+.repo-btn {
+  background:#F0D00D;
+  border: none;
+  outline: none;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 10px;
+  color: #fdfdfd;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.repo-btn:hover {
+  background:#FFE85A;
+}
+
+.repo-btn:first-child{
+  margin-bottom:10px;
+}
+
 /* ISSUES STYLES */
 .issue-container {
+  width:100%;
+  background:#fdfdfd;
+  padding-top:20px;
   margin-bottom:20px;
   position:relative;
-  color:#000;
+  color:#040404;
+  border: 8px solid #0C6C71;
+}
+
+.close-button-issues {
+  position:absolute;
+  right:15px;
+  top:5px;
+  font-size:20px;
+  cursor: pointer;
+}
+
+.issue-card-container {
+  border-top:1px solid #999;
+}
+
+.issue-card-container:first-child{
+  border-top:none;
 }
 
 .issue-card {
-  width:100%;
   display:flex;
   flex-flow:row nowrap;
   justify-content: space-between;
-  background:#fff;
-  color:#000;
-  padding:10px 20px;
+  padding:20px;
 }
 
 .issue-details,
@@ -122,10 +266,48 @@ body {
   text-align:left;
 }
 
+.issue-details h3 {
+  margin:5px 0 2px 0;
+}
+
+.issue-details p {
+  margin:0;
+  font-size:12px;
+  color:#999;
+}
+
+p.issue-body {
+  margin-top:10px;
+  font-size:14px;
+  color:#040404;
+}
+
 .issue-buttons {
   display:flex;
   flex-flow:column nowrap;
   justify-content: center;
+  min-width: 75px;
+  margin-left: 15px;
+}
+
+.issue-btn {
+  background:#88BFC2;
+  border: none;
+  outline: none;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 10px;
+  color: #fdfdfd;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.issue-btn:hover {
+  background:#119DA4;
+}
+
+.issue-btn:first-child{
+  margin-bottom:10px;
 }
 
 /* MODAL STYLES */
@@ -145,8 +327,8 @@ body {
 }
 
 .modal {
-  background:#fff;
-  color:#000;
+  background:#fdfdfd;
+  color:#040404;
   border-radius:10px;
   min-width: 500px;
   width:60%;
@@ -157,6 +339,36 @@ body {
   align-items:center;
   justify-content: center;
   padding:20px;
+}
+
+input,textarea {
+  font-size:14px;
+  padding:10px;
+  max-width:300px;
+  width:80%;
+  border:0;
+  border-bottom:1px solid #119DA4;
+  border-right:1px solid #119DA4;
+  box-shadow: 3px 3px 10px rgba(17,157,164,0.3);
+  outline: 0;
+  margin-bottom: 25px;
+  background:#f9f9f9;
+}
+
+.modal-btn {
+  background:#F0D00D;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 10px;
+  color: #fdfdfd;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.modal-btn:hover {
+  background:#FFE85A;
 }
 
 
@@ -173,6 +385,23 @@ body {
 .profile-container,
 .repos-container {
   width:100%;
+  padding:10px 0;
+  min-height:inherit;
 }
+
+.profile-content {
+  display:flex;
+  flex-flow:row nowrap;
+}
+
+.modal-container {
+  max-width:100vw;
+}
+
+.modal {
+  min-width:200px;
+  width:80%;
+}
+
 
 }

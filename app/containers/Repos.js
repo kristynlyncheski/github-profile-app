@@ -46,6 +46,8 @@ const Repos = React.createClass({
           onHideModal={this.hideModal}
           repoName={this.state.repoName}
           issue={this.state.issue}
+          setCheckIssues={this.setCheckIssues}
+          onHideIssues={this.handleHideIssuesState}
         />
       );
     } else {
@@ -61,7 +63,6 @@ const Repos = React.createClass({
     this.setState({
       issue: issue
     });
-    console.log(issue)
   },
   render: function(){
     return(

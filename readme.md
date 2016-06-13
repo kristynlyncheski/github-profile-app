@@ -1,20 +1,29 @@
-random backgrounds on refresh?
+GitHub 2.0
+by Kristyn Lyncheski
 
+- To avoid exposing a personal password on GitHub, I created a placeholder GitHub account and hard-coded those credentials for the API calls.
 
-- To avoid compromising a personal password, I created a placeholder GitHub account and hard-coded the credentials for the API calls.
+### BUILD INSTRUCTIONS
+- Install node modules, using 'npm install' in Terminal
+- Run the app on local host by running 'npm start' from the app folder in Terminal
 
-// link out to issues?
+### USAGE INSTRUCTIONS
+- Profile
+  * View this user's profile information, such as his/her bio, location, website, email address and date joined
+  * Use the 'View All Repos' button to open the panel showing all of this user's repositories
+- Repositories
+  * Use the 'View on GitHub' link to open a new tab of the repository on GitHub
+  * Create a new issue directly in the app with the 'New Issue' button
+    * Enter a title and body in the modal window, then click the submit button
+  * View all issues (open and closed) with the 'View Issues' button
+- Issues
+  * Edit an existing issue with the "Edit" button
+    * Update the title and/or body in the modal window, then click the submit button
+  * Open or close an existing issue with the "Open"/"Close" buttons
 
-//change h2 to be user's name (dynamically)
-
-Only show 5 repos at a time?
-//add a button to only see open issues vs all
-
-// for profile page, show contents only if not undefined
-// in mobile view, hide contents and have a "show more details" button
-//placeholder image for missing profile pics?
-
-//add a loading for getting the issues?
-
-
-//once you open/close an issue, card needs to update
+### FEATURES/DETAILS TO BE ADDED
+- Only five repos would show per page to avoid long pages.
+- A button on the issues card would allow a user to filter between open, closed or all issues.
+- When an issue is created or edited, the view would update. This would involve a slight restructuring of the components.
+- CSS changes
+  * Repo and issues modules would slide out when opened and slide back when closed

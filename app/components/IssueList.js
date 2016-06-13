@@ -8,7 +8,6 @@ const IssueList = React.createClass({
       var issueList = issues.map((issue,index) => {
         return (
           <div key={index} className="issue-card-container">
-            <div className="close-button" onClick={this.props.onCloseIssues}>x</div>
             <IssueCard
               issue={issue}
               repoName={this.props.repoName}
@@ -23,7 +22,6 @@ const IssueList = React.createClass({
     } else if (issues.length === 0){
       return (
         <div className="issue-card">
-          <div className="close-button" onClick={this.props.onCloseIssues}>x</div>
           <p>There are currently no issues for this repo.</p>
         </div>
       )
@@ -32,7 +30,10 @@ const IssueList = React.createClass({
   render: function(){
     return (
       <div className="issue-container">
-        {this.renderIssues()}
+        <div className="close-button-issues" onClick={this.props.onCloseIssues}>x</div>
+        <div className="issue-cards">
+          {this.renderIssues()}
+        </div>
       </div>
     );
   }

@@ -8,11 +8,11 @@ const Profile = React.createClass({
     return(
       <div className="profile-container">
         <div className="inner-container">
-          <h2><i className="fa fa-github" aria-hidden="true"></i> app name</h2>
+          <h2 className="app-name"><i className="fa fa-github fa-2x" aria-hidden="true"></i> &nbsp;&nbsp; GitHub 2.0</h2>
           <ProfileContent user={this.props.userInfo}/>
           <div className="repo-button">
             <Link to="/repos" activeClassName="active-nav">
-              <button type="button">View All Repos</button>
+              <button type="button" className="view-repos-btn">View All Repos</button>
             </Link>
           </div>
         </div>

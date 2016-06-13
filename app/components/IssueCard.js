@@ -12,9 +12,9 @@ const IssueCard = React.createClass({
     // console.log(state);
 
     if (state === "closed") {
-      return <button type="button" value="open" onClick={this.handleStateChange}>Open Issue</button>
+      return <button className="issue-btn" type="button" value="open" onClick={this.handleStateChange}>Open</button>
     } else if (state === "open"){
-      return <button value="close" type="button" onClick={this.handleStateChange}>Close Issue</button>
+      return <button className="issue-btn" type="button" value="close" onClick={this.handleStateChange}>Close</button>
     };
   },
   handleStateChange: function(e){
@@ -47,16 +47,25 @@ const IssueCard = React.createClass({
   },
   render: function(){
     var issue = this.props.issue;
+
+    var date = new Date(issue.created_at);
+    var month = date.getMonth();
+    var months = ["January" , "February" , "March" , "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    month = months[month];
+    var day = date.getDate();
+    var year = date.getFullYear();
+
+    date = month + " " + day + ", " + year;
+
     return (
       <div className="issue-card">
         <div className="issue-details">
           <h3>{issue.title}</h3>
-          <p>({this.state.issueState})</p>
-          <p>Created on {issue.created_at}</p>
-          <p>{issue.body}</p>
+          <p><span className="italic">({this.state.issueState})</span> &nbsp; Created on {date}</p>
+          <p className="issue-body">{issue.body}</p>
         </div>
         <div className="issue-buttons">
-          <button type="button" onClick={this.handleEditModal}>Edit Issue</button>
+          <button className="issue-btn" type="button" onClick={this.handleEditModal}>Edit</button>
           {this.renderCloseBtn()}
         </div>
       </div>
