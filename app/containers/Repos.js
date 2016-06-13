@@ -9,6 +9,7 @@ const Repos = React.createClass({
     return {
       repoList: [],
       showModal: false,
+      hideAllIssues: false
     };
   },
   componentDidMount: function(){
@@ -46,8 +47,7 @@ const Repos = React.createClass({
           onHideModal={this.hideModal}
           repoName={this.state.repoName}
           issue={this.state.issue}
-          setCheckIssues={this.setCheckIssues}
-          onHideIssues={this.handleHideIssuesState}
+          onHideIssues={this.handleHideIssues}
         />
       );
     } else {
@@ -62,6 +62,16 @@ const Repos = React.createClass({
   setIssue: function(issue){
     this.setState({
       issue: issue
+    });
+  },
+  handleHideIssues: function(){
+    this.setState({
+      hideAllIssues: true
+    });
+  },
+  removeHideIssues: function(){
+    this.setState({
+      hideAllIssues: false
     });
   },
   render: function(){
@@ -79,6 +89,8 @@ const Repos = React.createClass({
             onEditModal={this.showEditModal}
             onSetRepoName={this.setRepoName}
             onSetIssue={this.setIssue}
+            hideIssuesState={this.state.hideAllIssues}
+            removeHideIssues={this.removeHideIssues}
           />
         </div>
       </div>

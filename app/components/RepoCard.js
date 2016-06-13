@@ -9,11 +9,19 @@ const RepoCard = React.createClass({
       showIssues: false,
       issueList: [],
       issuesLoading: false,
+      hideIssues: this.props.hideIssuesState
+    };
+  },
+  componentWillReceiveProps(nextProps){
+    if (this.state.hideIssues !== nextProps.hideIssuesState){
+      this.setState({
+        hideIssues: nextProps.hideIssuesState
+      });
     };
   },
   handleShowIssues: function(e){
     // console.log(e);
-
+    this.props.removeHideIssues();
     this.setState({
       issuesLoading: true,
       showIssues: true,
@@ -21,7 +29,7 @@ const RepoCard = React.createClass({
     var that = this;
     ajaxHelpers.getIssues(this.props.repo.name)
     .then(function(response){
-      console.log("get issues response", response);
+      // console.log("get issues response", response);
       that.setState({
         issueList: response.data,
         issuesLoading:false
@@ -34,7 +42,7 @@ const RepoCard = React.createClass({
     });
   },
   viewIssues: function(){
-    if (this.state.showIssues && this.state.issuesLoading){
+    if (this.state.showIssues && this.state.issuesLoading && !this.state.hideIssues){
       return (
         <div className="issue-container">
           <div className="issue-cards">
@@ -46,7 +54,7 @@ const RepoCard = React.createClass({
           </div>
         </div>
       )
-    } else if (this.state.showIssues){
+    } else if (this.state.showIssues && !this.state.hideIssues){
       return (
         <IssueList
           issues={this.state.issueList}

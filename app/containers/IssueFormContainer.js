@@ -10,6 +10,7 @@ const IssueFormContainer = React.createClass({
           onHideModal={this.props.onHideModal}
           repoName={this.props.repoName}
           issue={this.props.issue}
+          onHideIssues={this.props.onHideIssues}
         />
       </div>
     )

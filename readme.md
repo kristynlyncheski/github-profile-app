@@ -20,10 +20,11 @@ by Kristyn Lyncheski
   * Edit an existing issue with the "Edit" button
     * Update the title and/or body in the modal window, then click the submit button
   * Open or close an existing issue with the "Open"/"Close" buttons
+  * When an issue is created or edited, the issues panel closes. When the 'View' button is clicked again, the API is called again with a date parameter to avoid caching data.
+    * GitHub API calls do not find updated data because the query appears to cache the data
 
 ### FEATURES/DETAILS TO BE ADDED
 - Only five repos would show per page to avoid long pages.
 - A button on the issues card would allow a user to filter between open, closed or all issues.
-- When an issue is created or edited, the view would update. This would involve a slight restructuring of the components.
 - CSS changes
   * Repo and issues modules would slide out when opened and slide back when closed

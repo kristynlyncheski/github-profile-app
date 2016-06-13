@@ -37,11 +37,13 @@ const IssueForm = React.createClass({
       ajaxHelpers.createIssue(newIssue,repoName)
       .then(function(response){
         // console.log("create issue response", response);
+        that.props.onHideIssues();
       });
     } else if (this.props.formType === "edit"){
       ajaxHelpers.changeIssue(newIssue,repoName,issueNumber)
       .then(function(response){
         // console.log("edit issue response", response);
+        that.props.onHideIssues();
       });
     };
   },

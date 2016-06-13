@@ -9,8 +9,6 @@ const IssueCard = React.createClass({
   },
   renderCloseBtn: function(){
     var state = this.state.issueState;
-    // console.log(state);
-
     if (state === "closed") {
       return <button className="issue-btn" type="button" value="open" onClick={this.handleStateChange}>Open</button>
     } else if (state === "open"){

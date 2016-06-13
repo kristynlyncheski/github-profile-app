@@ -16,6 +16,8 @@ const RepoList = React.createClass({
             onEditModal={this.props.onEditModal}
             onSetRepoName={this.props.onSetRepoName}
             onSetIssue={this.props.onSetIssue}
+            hideIssuesState={this.props.hideIssuesState}
+            removeHideIssues={this.props.removeHideIssues}
           />
         </div>
       )

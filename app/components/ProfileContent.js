@@ -89,7 +89,7 @@ const ProfileContent = React.createClass({
 
     date = month + " " + day + ", " + year;
 
-    if (date){
+    if (dateISO){
       return (
         <p><i className="fa fa-2x fa-clock-o" aria-hidden="true"></i> <span>Joined on {date}</span></p>
       );
